@@ -47,6 +47,7 @@ class PureChat extends PluginBase
         $purePerms = $this->getServer()->getPluginManager()->getPlugin("PurePerms");
         $this->clan = $this->getServer()->getPluginManager()->getPlugin("GCPClan");
         $this->capdao = $this->getServer()->getPluginManager()->getPlugin("capdao");
+        $this->levelmine = $this->getServer()->getPluginManager()->getPlugin("NangCap");
         assert($purePerms instanceof PurePerms);
         $this->purePerms = $purePerms;
     }
@@ -265,6 +266,7 @@ class PureChat extends PluginBase
             $string = str_replace("{clan}", "", $string);
         }
         $string = str_replace("{capdao}", $this->capdao->getLevelIsland($player), $string);
+        $tring = str_replace("{capmine}",$this->level->getLevel($player), $string);
         $string = str_replace("{world}", ($WorldName === null ? "" : $WorldName), $string);
         $string = str_replace("{prefix}", $this->getPrefix($player, $WorldName), $string);
         $string = str_replace("{suffix}", $this->getSuffix($player, $WorldName), $string);
